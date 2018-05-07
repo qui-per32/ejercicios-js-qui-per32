@@ -30,20 +30,31 @@ function lookUpProfile(firstName, prop) {
     // Only change code below this line
 
 
-    for (var x = 0; x < contacts.length; x++) {
-        if (contacts[x].firstName === firstName) {
-            if (contacts[x].hasOwnProperty(prop)) {
-                return contacts[x][prop];
-            } else {
-                return "No such property";
-            }
+    // for (var x = 0; x < contacts.length; x++) {
+    //     if (contacts[x].firstName === firstName) {
+    //         if (contacts[x].hasOwnProperty(prop)) {
+    //             return contacts[x][prop];
+    //         } else {
+    //             return "No such property";
+    //         }
+    //     }
+    // }
+    // return "No such contact";
+
+    for (let contact of contacts) {
+        if  (
+            contact.firstName === firstName 
+            &&
+            typeof contact[prop]!== 'undefined'
+            ) {
+            return contact[prop]
         }
     }
-    return "No such contact";
+    return 'no contact or property'
 
 
     // Only change code above this line
 }
 
 // Change these values to test your function
-lookUpProfile("Akira", "likes");
+console.log(lookUpProfile("Akidcra", "num3ber"));
